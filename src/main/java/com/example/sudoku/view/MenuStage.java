@@ -24,7 +24,7 @@ public class MenuStage  {
         }
         Scene scene=new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Menu Sudoku");
+        stage.setTitle("Menu");
         stage.getIcons().add(new Image(
             String.valueOf(MenuStage.class.getResource("/com/example/sudoku/Icons/sudoku.png"))
         ));
