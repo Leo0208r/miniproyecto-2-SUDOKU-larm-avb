@@ -1,5 +1,4 @@
 package com.example.sudoku.view;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,10 +8,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EndStage {
+    private static Stage endStage;
     private static final String FXML_PATH= "/com/example/sudoku/End-view.fxml";
     private EndStage(){throw new UnsupportedOperationException("GameStage is a utility class.");}
-
-    public static void showView(Stage stage) {
+    public static void setStage(Stage stage){endStage= stage;}
+    public static void showView() {
         FXMLLoader loader= new FXMLLoader(
                 MenuStage.class.getResource(FXML_PATH)
         );
@@ -23,16 +23,15 @@ public class EndStage {
             throw new RuntimeException(e);
         }
         Scene scene=new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Final");
-        stage.getIcons().add(new Image(
+        endStage.setScene(scene);
+        endStage.setTitle("Final");
+        endStage.getIcons().add(new Image(
                 String.valueOf(MenuStage.class.getResource("/com/example/sudoku/Icons/taza.png"))
         ));
-        stage.show();
+        endStage.show();
     }
 
-    public static void deleteView(Stage stage) {
-        stage.getScene().getWindow();
-        stage.close();
+    public static void deleteView() {
+        endStage.close();
     }
 }

@@ -9,10 +9,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GameStage {
+    private static Stage gameStage;
     private static final String FXML_PATH= "/com/example/sudoku/Game-view.fxml";
     private GameStage(){throw new UnsupportedOperationException("GameStage is a utility class.");}
-
-    public static void showView(Stage stage) {
+    public static void setStage(Stage stage){gameStage=stage;}
+    public static void showView() {
         FXMLLoader loader= new FXMLLoader(
                 MenuStage.class.getResource(FXML_PATH)
         );
@@ -23,16 +24,15 @@ public class GameStage {
             throw new RuntimeException(e);
         }
         Scene scene=new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Sudoku");
-        stage.getIcons().add(new Image(
+        gameStage.setScene(scene);
+        gameStage.setTitle("Sudoku");
+        gameStage.getIcons().add(new Image(
                 String.valueOf(MenuStage.class.getResource("/com/example/sudoku/Icons/jugando-videojuegos.png"))
         ));
-        stage.show();
+        gameStage.show();
     }
 
-    public static void deleteView(Stage stage) {
-        stage.getScene().getWindow();
-        stage.close();
+    public static void deleteView() {
+        gameStage.close();
     }
 }
