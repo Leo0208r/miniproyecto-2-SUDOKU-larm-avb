@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.controller.GameController">
    <children>
-      <GridPane alignment="TOP_CENTER" gridLinesVisible="true" layoutX="177.0" layoutY="96.0" prefHeight="169.0" prefWidth="245.0" style="-fx-background-color: white;">
+      <GridPane fx:id="sudokuGrid" alignment="TOP_CENTER" gridLinesVisible="true" layoutX="177.0" layoutY="96.0" prefHeight="169.0" prefWidth="245.0" style="-fx-background-color: white;">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,7 +32,7 @@
             <Insets />
          </opaqueInsets>
       </GridPane>
-      <Button layoutX="260.0" layoutY="297.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" text="Ayuda">
+      <Button layoutX="260.0" layoutY="297.0" mnemonicParsing="false" onAction="#onHandleHelp" prefHeight="43.0" prefWidth="80.0" text="Ayuda">
          <font>
             <Font name="Arial" size="19.0" />
          </font>
