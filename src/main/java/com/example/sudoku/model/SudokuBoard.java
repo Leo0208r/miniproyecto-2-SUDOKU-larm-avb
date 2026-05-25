@@ -1,13 +1,13 @@
 package com.example.sudoku.model;
 
 public class SudokuBoard {
-    private static final int size=6;
+    private static final int SIZE=6;
     private int[][] board;
     private boolean[][] fixed;
 
     public SudokuBoard(){
-        board= new int[size][size];
-        fixed= new boolean[size][size];
+        board= new int[SIZE][SIZE];
+        fixed= new boolean[SIZE][SIZE];
     }
     public int getValue(int row, int column){
         return board[row][column];
