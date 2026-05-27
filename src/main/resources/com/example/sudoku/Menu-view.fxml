@@ -3,19 +3,42 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.controller.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: linear-gradient(to bottom, #C8EAF5, #A8D8EA, #B8E4F2);"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sudoku.controller.MenuController">
    <children>
-      <Button layoutX="257.0" layoutY="244.0" mnemonicParsing="false" onAction="#onHandleStart" prefHeight="35.0" prefWidth="85.0" text="Jugar">
+
+      <Rectangle layoutX="-30.0" layoutY="20.0" width="90.0" height="90.0" fill="#7DCFE8" opacity="0.18" arcWidth="12.0" arcHeight="12.0" rotate="15.0" />
+      <Rectangle layoutX="540.0" layoutY="10.0" width="80.0" height="80.0" fill="#5BBBD6" opacity="0.15" arcWidth="12.0" arcHeight="12.0" rotate="30.0" />
+      <Rectangle layoutX="520.0" layoutY="310.0" width="110.0" height="110.0" fill="#7DCFE8" opacity="0.18" arcWidth="14.0" arcHeight="14.0" rotate="20.0" />
+      <Rectangle layoutX="-20.0" layoutY="310.0" width="85.0" height="85.0" fill="#A3E0F0" opacity="0.22" arcWidth="12.0" arcHeight="12.0" rotate="10.0" />
+      <Circle centerX="80.0" centerY="390.0" radius="65.0" fill="#A3E0F0" opacity="0.20" />
+      <Circle centerX="530.0" centerY="60.0" radius="55.0" fill="#7DCFE8" opacity="0.17" />
+
+      <StackPane layoutX="170.0" layoutY="60.0" prefHeight="75.0" prefWidth="260.0"
+                 style="-fx-background-color: white; -fx-background-radius: 16px; -fx-border-color: #2980B9; -fx-border-radius: 16px; -fx-border-width: 2.5px; -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.22), 15, 0, 0, 4);">
+         <children>
+            <Label text="Sudoku" style="-fx-text-fill: #1A4E6E; -fx-font-weight: bold;">
+               <font>
+                  <Font name="Arial Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+
+      <Button layoutX="230.0" layoutY="240.0" mnemonicParsing="false" onAction="#onHandleStart" prefHeight="45.0" prefWidth="140.0" text="Jugar"
+              style="-fx-background-color: #2980B9; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8px; -fx-border-color: #1A6A94; -fx-border-radius: 8px; -fx-border-width: 2px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.35), 8, 0, 0, 3);">
          <font>
             <Font name="Arial Bold" size="19.0" />
          </font>
       </Button>
-      <Label layoutX="228.0" layoutY="38.0" text="Sudoku">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="43.0" />
-         </font>
-      </Label>
+
    </children>
 </AnchorPane>
