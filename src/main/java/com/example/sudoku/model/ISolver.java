@@ -24,5 +24,5 @@ public interface ISolver {
      * @return an array containing [row, column, value] for the hint,
      *         or null if no hint can be provided
      */
-    int[] getHint(int[][] board);
+    int[] getHint(SudokuBoard board);
 }

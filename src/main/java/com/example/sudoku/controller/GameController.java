@@ -36,7 +36,7 @@ public class GameController {
      */
     @FXML
     public void onHandleHelp(ActionEvent event) {
-        int[] hint = solver.getHint(sudokuBoard.getBoard());
+        int[] hint = solver.getHint(sudokuBoard);
 
         if (hint == null) return;
 
@@ -207,7 +207,7 @@ public class GameController {
             try {
                 int num = Integer.parseInt(event.getText());
                 if (num >= 1 && num <= 6) {
-                    if (validator.isValidate(sudokuBoard.getBoard(), row, col, num)) {
+                    if (validator.isValidate(sudokuBoard, row, col, num)) {
                         sudokuBoard.setValue(row, col, num);
                         cell.setText(String.valueOf(num));
                         cell.setStyle("-fx-background-color: #cce5ff;");

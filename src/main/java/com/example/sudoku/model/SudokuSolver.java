@@ -46,19 +46,26 @@ public class SudokuSolver implements ISolver {
      *         or null if no hint can be provided (board is unsolvable)
      */
     @Override
-    public int[] getHint(int[][] board) {
-        int[][] copy = new int[6][6];
-        for (int i = 0; i < 6; i++) {
-            copy[i] = board[i].clone();
-        }
+    public int[] getHint(SudokuBoard board) {
+        SudokuBoard copy = new SudokuBoard();
         if (!solve(copy)) return null;
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
-                if (board[row][col] == 0) {
-                    return new int[]{row, col, copy[row][col]};
+                if (board.getValue(row,col) == 0) {
+                    return new int[]{row, col, copy.getValue(row,col)};
                 }
             }
         }
         return null;
+    }
+    private SudokuBoard copyBoard(SudokuBoard board) {
+        SudokuBoard copy = new SudokuBoard();
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 6; col++) {
+                // copy does not set fixed so solver can overwrite freely
+                copy.setValue(row, col, board.getValue(row, col));
+            }
+        }
+        return copy;
     }
 }
