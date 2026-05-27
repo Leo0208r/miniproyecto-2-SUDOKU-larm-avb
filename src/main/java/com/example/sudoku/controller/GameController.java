@@ -50,6 +50,9 @@ public class GameController {
             if (GridPane.getRowIndex(node) == hintRow
                     && GridPane.getColumnIndex(node) == hintCol) {
                 TextField cell = (TextField) node;
+                int previousValue = sudokuBoard.getValue(hintRow, hintCol);
+                moveHistory.push(new Move(hintRow, hintCol, previousValue));
+
                 sudokuBoard.setValue(hintRow, hintCol, hintValue);
                 cell.setText(String.valueOf(hintValue));
                 cell.setStyle("-fx-background-color: #d4edda;");
