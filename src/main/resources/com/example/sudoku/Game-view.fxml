@@ -32,7 +32,7 @@
             <Insets />
          </opaqueInsets>
       </GridPane>
-      <Button layoutX="260.0" layoutY="297.0" mnemonicParsing="false" onAction="#onHandleHelp" prefHeight="43.0" prefWidth="80.0" text="Ayuda">
+      <Button layoutX="185.0" layoutY="296.0" mnemonicParsing="false" onAction="#onHandleHelp" prefHeight="43.0" prefWidth="80.0" text="Ayuda">
          <font>
             <Font name="Arial" size="19.0" />
          </font>
@@ -42,5 +42,10 @@
             <Font name="Arial" size="30.0" />
          </font>
       </Label>
+      <Button layoutX="321.0" layoutY="296.0" mnemonicParsing="false" onAction="#onHandleUndo" prefHeight="43.0" prefWidth="80.0" text="↩">
+         <font>
+            <Font name="Arial" size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

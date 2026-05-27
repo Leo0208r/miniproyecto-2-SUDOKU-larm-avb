@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import java.util.Stack;
 
 /**
  * Controller for the Sudoku game view.
@@ -25,6 +26,7 @@ public class GameController {
     private TextField selectedCell = null;
     private int selectedRow = -1;
     private int selectedCol = -1;
+    private Stack<Move> moveHistory = new Stack<>();
     @FXML
     private GridPane sudokuGrid;
     /**
@@ -51,6 +53,42 @@ public class GameController {
                 sudokuBoard.setValue(hintRow, hintCol, hintValue);
                 cell.setText(String.valueOf(hintValue));
                 cell.setStyle("-fx-background-color: #d4edda;");
+                break;
+            }
+        }
+    }
+
+    /**
+     * Handles the undo button action.
+     * Removes the last number entered by the player and restores the previous state.
+     *
+     * @param event the action event triggered by the undo button
+     */
+    @FXML
+    public void onHandleUndo(ActionEvent event) {
+        if (moveHistory.isEmpty()) {
+            return; // No moves to undo
+        }
+
+        Move lastMove = moveHistory.pop();
+        int undoRow = lastMove.row;
+        int undoCol = lastMove.col;
+        int previousValue = lastMove.previousValue;
+
+        // Restore the previous value in the board
+        sudokuBoard.setValue(undoRow, undoCol, previousValue);
+
+        // Update the UI
+        for (javafx.scene.Node node : sudokuGrid.getChildren()) {
+            if (GridPane.getRowIndex(node) == undoRow
+                    && GridPane.getColumnIndex(node) == undoCol) {
+                TextField cell = (TextField) node;
+                if (previousValue == 0) {
+                    cell.setText("");
+                } else {
+                    cell.setText(String.valueOf(previousValue));
+                }
+                cell.setStyle("-fx-background-color: white;");
                 break;
             }
         }
@@ -208,6 +246,10 @@ public class GameController {
                 int num = Integer.parseInt(event.getText());
                 if (num >= 1 && num <= 6) {
                     if (validator.isValidate(sudokuBoard, row, col, num)) {
+                        // Guardar el movimiento en la pila (antes de cambiar el valor)
+                        int previousValue = sudokuBoard.getValue(row, col);
+                        moveHistory.push(new Move(row, col, previousValue));
+
                         sudokuBoard.setValue(row, col, num);
                         cell.setText(String.valueOf(num));
                         cell.setStyle("-fx-background-color: #cce5ff;");
@@ -286,5 +328,20 @@ public class GameController {
         renderBoard();
     }
 
+    /**
+     * Inner class to represent a move in the game.
+     * Stores the row, column, and previous value for undo functionality.
+     */
+    private static class Move {
+        int row;
+        int col;
+        int previousValue;
 
+        Move(int row, int col, int previousValue) {
+            this.row = row;
+            this.col = col;
+            this.previousValue = previousValue;
+        }
+    }
 }
+
