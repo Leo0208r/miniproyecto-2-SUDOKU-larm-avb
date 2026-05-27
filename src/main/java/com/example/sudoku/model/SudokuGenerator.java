@@ -9,28 +9,26 @@ public class SudokuGenerator {
     private SudokuValidator validator= new SudokuValidator();
 
     public SudokuBoard generate(){
-        int[][] board= new int[6][6];
+        //int[][] board= new int[6][6];
+        SudokuBoard board= new SudokuBoard();
         fillBoard(board);
-        int[][] solution= copyBoard(board);
         removeNumbers(board);
-        SudokuBoard sudokuBoard= new SudokuBoard();
-        sudokuBoard.setBoard(board);
-        markFixedCells(sudokuBoard);
-        return sudokuBoard;
+        markFixedCells(board);
+        return board;
 
     }
-    private boolean fillBoard(int[][] board){
+    private boolean fillBoard(SudokuBoard board){
         for(int row=0; row<6; row++){
             for(int col=0; col<6; col++){
-                if (board[row][col]==0){
+                if (board.getValue(row,col)==0){
                     List<Integer> numbers=getShuffledNumbers();
                     for (int num: numbers){
                         if(validator.isValidate(board,row,col,num)){
-                            board[row][col]=num;
+                            board.setValue(row,col,num);
                             if (fillBoard(board)){
                                 return true;
                             }
-                            board[row][col]=0;
+                            board.setValue(row,col,0);
                         }
                     }
                     return false;
@@ -47,14 +45,14 @@ public class SudokuGenerator {
         Collections.shuffle(numbers);
         return numbers;
     }
-    private void removeNumbers(int[][] board){
+    private void removeNumbers(SudokuBoard board){
         for (int blocRow=0; blocRow<3;blocRow++){
             for (int blocCol=0; blocCol<2; blocCol++){
                 removeFromBlock(board, blocRow*2, blocCol*3);
             }
         }
     }
-    private void removeFromBlock(int[][]board, int startRow, int startCol){
+    private void removeFromBlock(SudokuBoard board, int startRow, int startCol){
         List<int[]> positions= new ArrayList<>();
         for (int r=startRow; r<startRow+2; r++){
             for (int c= startCol; c<startCol+3; c++ ){
@@ -64,7 +62,7 @@ public class SudokuGenerator {
         Collections.shuffle(positions);
         for (int i=2; i<positions.size(); i++){
             int[] pos=positions.get(i);
-            board[pos[0]][pos[1]]=0;
+            board.setValue(pos[0],pos[1],0);
         }
     }
     private void markFixedCells(SudokuBoard sudokuBoard){
@@ -76,13 +74,5 @@ public class SudokuGenerator {
             }
         }
     }
-    private int[][] copyBoard(int[][] board){
-        int[][] copy= new int[6][6];
-        for (int row=0; row<6; row++){
-            for(int col=0; col<6; col++){
-                copy[row][col]=board[row][col];
-            }
-        }
-        return copy;
-    }
+
 }

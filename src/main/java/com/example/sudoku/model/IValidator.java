@@ -19,7 +19,7 @@ public interface IValidator {
      * @param value the value to validate (1-6)
      * @return true if the value is valid for this position, false otherwise
      */
-    boolean isValidate(int[][] board, int row, int column, int value);
+    boolean isValidate(SudokuBoard board, int row, int column, int value);
 
     /**
      * Checks if a value already exists in the specified row.
@@ -29,7 +29,7 @@ public interface IValidator {
      * @param value the value to check (1-6)
      * @return true if the value exists in the row, false otherwise
      */
-    boolean isRow(int[][] board, int row, int value);
+    boolean isRow(SudokuBoard board, int row, int value);
 
     /**
      * Checks if a value already exists in the specified column.
@@ -39,7 +39,7 @@ public interface IValidator {
      * @param value the value to check (1-6)
      * @return true if the value exists in the column, false otherwise
      */
-    boolean isColumn(int[][] board, int column, int value);
+    boolean isColumn(SudokuBoard board, int column, int value);
 
     /**
      * Checks if a value already exists in the 2x3 block containing the specified position.
@@ -50,5 +50,5 @@ public interface IValidator {
      * @param value the value to check (1-6)
      * @return true if the value exists in the block, false otherwise
      */
-    boolean isBlock(int[][] board, int row, int column, int value);
+    boolean isBlock(SudokuBoard board, int row, int column, int value);
 }

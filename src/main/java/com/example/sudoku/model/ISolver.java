@@ -15,7 +15,7 @@ public interface ISolver {
      * @param board the 6x6 Sudoku board to solve
      * @return true if the board is solvable, false otherwise
      */
-    boolean solve(int[][] board);
+    boolean solve(SudokuBoard board);
 
     /**
      * Provides a hint for an empty cell in the Sudoku board.
@@ -24,5 +24,5 @@ public interface ISolver {
      * @return an array containing [row, column, value] for the hint,
      *         or null if no hint can be provided
      */
-    int[] getHint(int[][] board);
+    int[] getHint(SudokuBoard board);
 }
