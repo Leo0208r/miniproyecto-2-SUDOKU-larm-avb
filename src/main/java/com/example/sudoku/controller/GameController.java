@@ -13,9 +13,11 @@ import java.util.Stack;
 
 /**
  * Controller for the Sudoku game view.
- * Handles user interactions including cell selection, number input, and hint requests.
+ * Manages the interactive Sudoku game board, handling user interactions including
+ * cell selection, number input, hint requests, and undo functionality.
+ * Uses a move history stack to support undo operations.
  *
- * @author Your Name
+ * @author Sudoku Team
  * @version 1.0
  */
 public class GameController {
