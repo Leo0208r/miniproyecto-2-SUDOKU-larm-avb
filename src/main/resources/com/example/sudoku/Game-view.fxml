@@ -7,40 +7,96 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.controller.GameController">
-   <children>
-      <GridPane fx:id="sudokuGrid" alignment="TOP_CENTER" gridLinesVisible="true" layoutX="177.0" layoutY="96.0" prefHeight="169.0" prefWidth="245.0" style="-fx-background-color: white;">
-        <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </GridPane>
-      <Button layoutX="260.0" layoutY="297.0" mnemonicParsing="false" onAction="#onHandleHelp" prefHeight="43.0" prefWidth="80.0" text="Ayuda">
-         <font>
-            <Font name="Arial" size="19.0" />
-         </font>
-      </Button>
-      <Label layoutX="249.0" layoutY="26.0" text="Sudoku">
-         <font>
-            <Font name="Arial" size="30.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: linear-gradient(to bottom, #C8EAF5, #A8D8EA, #B8E4F2);"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sudoku.controller.GameController">
+    <children>
+
+        <!-- Formas decorativas — igual que antes -->
+        <Rectangle layoutX="-30" layoutY="20"  width="90"  height="90"  fill="#7DCFE8" opacity="0.18" arcWidth="12" arcHeight="12" rotate="15" />
+        <Rectangle layoutX="540" layoutY="10"  width="80"  height="80"  fill="#5BBBD6" opacity="0.15" arcWidth="12" arcHeight="12" rotate="30" />
+        <Rectangle layoutX="520" layoutY="310" width="110" height="110" fill="#7DCFE8" opacity="0.18" arcWidth="14" arcHeight="14" rotate="20" />
+        <Rectangle layoutX="-20" layoutY="310" width="85"  height="85"  fill="#A3E0F0" opacity="0.22" arcWidth="12" arcHeight="12" rotate="10" />
+        <Circle centerX="80"  centerY="390" radius="65" fill="#A3E0F0" opacity="0.20" />
+        <Circle centerX="530" centerY="60"  radius="55" fill="#7DCFE8" opacity="0.17" />
+
+        <!-- Recuadro del título -->
+        <StackPane layoutX="178.0" layoutY="18.0" prefWidth="244.0" prefHeight="58.0">
+            <style>
+                -fx-background-color: white;
+                -fx-background-radius: 14px;
+                -fx-border-color: #2980B9;
+                -fx-border-radius: 14px;
+                -fx-border-width: 2px;
+                -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.22), 12, 0, 0, 3);
+            </style>
+            <Label text="Sudoku">
+                <font><Font name="Arial Bold" size="34.0" /></font>
+                <style>-fx-text-fill: #1A4E6E; -fx-font-weight: bold;</style>
+            </Label>
+        </StackPane>
+
+        <!-- Tablero 6x6 — sin cambios -->
+        <GridPane fx:id="sudokuGrid" alignment="TOP_CENTER" gridLinesVisible="true"
+                  layoutX="177.0" layoutY="96.0" prefHeight="169.0" prefWidth="245.0"
+                  style="-fx-background-color: white; -fx-border-color: #2980B9; -fx-border-width: 2.5; -fx-effect: dropshadow(gaussian, rgba(26,106,148,0.28), 12, 0, 1, 3);">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <opaqueInsets><Insets /></opaqueInsets>
+        </GridPane>
+
+        <!-- Botones — sin cambios -->
+        <Button layoutX="185.0" layoutY="296.0" mnemonicParsing="false" onAction="#onHandleHelp"
+                prefHeight="43.0" prefWidth="100.0" text="Ayuda">
+            <font><Font name="Arial Bold" size="15.0" /></font>
+            <style>
+                -fx-background-color: white;
+                -fx-text-fill: #1A4E6E;
+                -fx-font-weight: bold;
+                -fx-background-radius: 6px;
+                -fx-border-color: #2980B9;
+                -fx-border-radius: 6px;
+                -fx-border-width: 2px;
+                -fx-cursor: hand;
+                -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.25), 6, 0, 0, 2);
+            </style>
+        </Button>
+
+        <Button layoutX="315.0" layoutY="296.0" mnemonicParsing="false" onAction="#onHandleUndo"
+                prefHeight="43.0" prefWidth="100.0" text="↩">
+            <font><Font name="Arial" size="20.0" /></font>
+            <style>
+                -fx-background-color: #2980B9;
+                -fx-text-fill: white;
+                -fx-background-radius: 6px;
+                -fx-border-color: #1A6A94;
+                -fx-border-radius: 6px;
+                -fx-border-width: 2px;
+                -fx-cursor: hand;
+                -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.35), 6, 0, 0, 2);
+            </style>
+        </Button>
+
+    </children>
 </AnchorPane>

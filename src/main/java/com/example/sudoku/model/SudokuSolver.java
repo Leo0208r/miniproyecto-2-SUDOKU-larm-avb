@@ -47,7 +47,7 @@ public class SudokuSolver implements ISolver {
      */
     @Override
     public int[] getHint(SudokuBoard board) {
-        SudokuBoard copy = new SudokuBoard();
+        SudokuBoard copy = copyBoard(board);
         if (!solve(copy)) return null;
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
