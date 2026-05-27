@@ -56,6 +56,7 @@ public class GameController {
                 sudokuBoard.setValue(hintRow, hintCol, hintValue);
                 cell.setText(String.valueOf(hintValue));
                 cell.setStyle("-fx-background-color: #d4edda;");
+                checkWin();
                 break;
             }
         }
@@ -155,7 +156,6 @@ public class GameController {
 
         // All cells are filled, so the board is solved and valid
         // (validation happens in real-time when numbers are entered)
-        GameStage.deleteView();
         EndStage.showView();
     }
     /**
