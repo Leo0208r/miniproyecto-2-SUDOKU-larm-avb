@@ -19,14 +19,14 @@ public class SudokuGenerator {
         return sudokuBoard;
 
     }
-    private boolean fillBoard(int[][] board){
+    private boolean fillBoard(SudokuBoard board){
         for(int row=0; row<6; row++){
             for(int col=0; col<6; col++){
-                if (board[row][col]==0){
+                if (board.getValue(row,col)==0){
                     List<Integer> numbers=getShuffledNumbers();
                     for (int num: numbers){
                         if(validator.isValidate(board,row,col,num)){
-                            board[row][col]=num;
+                            board.setValue(row,col,num);
                             if (fillBoard(board)){
                                 return true;
                             }

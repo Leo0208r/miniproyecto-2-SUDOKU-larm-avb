@@ -17,17 +17,17 @@ public class SudokuSolver implements ISolver {
      * @return true if the board is solvable, false otherwise
      */
     @Override
-    public boolean solve(int[][] board) {
+    public boolean solve(SudokuBoard board) {
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
-                if (board[row][col] == 0) {
+                if (board.getValue(row, col) == 0) {
                     for (int num = 1; num <= 6; num++) {
                         if (validator.isValidate(board, row, col, num)) {
-                            board[row][col] = num;
+                            board.setValue(row,col,num);
                             if (solve(board)) {
                                 return true;
                             }
-                            board[row][col] = 0;
+                            board.setValue(row, col,0);
                         }
                     }
                     return false;
