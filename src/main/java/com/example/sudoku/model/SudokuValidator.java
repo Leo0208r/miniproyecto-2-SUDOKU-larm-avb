@@ -4,7 +4,7 @@ package com.example.sudoku.model;
  * Implementation of the Sudoku validator that checks if moves are valid.
  * Validates entries based on Sudoku rules for 6x6 boards with 2x3 blocks.
  *
- * @author Your Name
+ * @author Sudoku Team
  * @version 1.0
  */
 public class SudokuValidator implements IValidator {

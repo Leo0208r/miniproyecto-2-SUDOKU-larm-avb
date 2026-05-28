@@ -4,7 +4,7 @@ package com.example.sudoku.model;
  * Interface for Sudoku validation operations.
  * Defines methods for validating Sudoku board entries.
  *
- * @author Your Name
+ * @author Sudoku Team
  * @version 1.0
  */
 public interface IValidator {

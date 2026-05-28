@@ -4,7 +4,7 @@ package com.example.sudoku.model;
  * Interface for Sudoku solver operations.
  * Defines methods for solving Sudoku puzzles and providing hints.
  *
- * @author Your Name
+ * @author Sudoku Team
  * @version 1.0
  */
 public interface ISolver {
