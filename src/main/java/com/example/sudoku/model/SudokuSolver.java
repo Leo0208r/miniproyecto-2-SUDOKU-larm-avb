@@ -4,7 +4,7 @@ package com.example.sudoku.model;
  * Implementation of the Sudoku solver using backtracking algorithm.
  * Provides methods to solve puzzles and generate hints.
  *
- * @author Your Name
+ * @author Sudoku Team
  * @version 1.0
  */
 public class SudokuSolver implements ISolver {
